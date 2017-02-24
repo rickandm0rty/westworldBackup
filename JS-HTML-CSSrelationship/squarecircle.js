@@ -2,6 +2,10 @@
 //than in html.  What are they like in CSS?
 
 
+//Comments in HTML are used by applying the <!-- sign and a closing --> sign.
+//
+
+
 var maxZ = 1000;   // Global var: initial z-index of shape that gets clicked
 var maxX = 600;
 var maxY = 200;
@@ -15,6 +19,10 @@ window.onload = function() {
   addS.onclick = addSquare;
   var addC = document.getElementById("addC");
   addC.onclick = addCircle;
+  var addR = document.getElementById("addR");
+  addR.onclick = addSasuke;
+  var addN = document.getElementById("addN");
+  addN.onclick = addNaruto;
   var colors = document.getElementById("colors");
   colors.onclick = changeColors;
   var clear = document.getElementById("clear");
@@ -23,10 +31,10 @@ window.onload = function() {
   // create several randomly positioned squares
   /*easter egg: Tell me which number determines the range and 
   which determines the minimum value (the floor) and why*/
-  var elementsCount = parseInt(Math.random() * 40) + 100;
+  var elementsCount = parseInt(Math.random() * 22) + 115;
   for (var i = 0; i < elementsCount; i++) {
-  	   var randWidth = parseInt(Math.random() * 40) + 40;
-  	   var randHeight = parseInt(Math.random() * 40) + 50;
+  	   var randWidth = parseInt(Math.random() * 12) + 12;
+  	   var randHeight = parseInt(Math.random() * 13) + 50;
     addElems(randWidth, randHeight);
   }
 };
@@ -34,6 +42,7 @@ window.onload = function() {
 function addLotsElems(randW, randH) {
   var locPosX = 1000;
   var locPosY = 1000;
+
   var square = document.createElement("div");
   square.className = "square";
   square.style.left = parseInt(Math.random() * locPosX) + "px";
@@ -58,6 +67,30 @@ function addLotsElems(randW, randH) {
 
   var elementArea = document.getElementById("breakB");
   elementArea.appendChild(circle);
+
+  var naruto = document.createElement("div");
+  naruto.className = "naruto";
+  //naruto.style.left = parseInt(Math.random() * locPosX) + "px";
+  //naruto.style.top = parseInt(Math.random() * locPosY) + "px";
+  //naruto.style.backgroundColor = getRandomColor();
+  naruto.style.width = randW;
+  naruto.style.height = randH;
+  naruto.onclick = show;
+
+  var elementArea = document.getElementById("breakB");
+  elementArea.appendChild(naruto);
+
+  var sasuke = document.createElement("div");
+  sasuke.className = "sasuke";
+  //sasuke.style.left = parseInt(Math.random() * locPosX) + "px";
+  //sasuke.style.top = parseInt(Math.random() * locPosY) + "px";
+  //sasuke.style.backgroundColor = getRandomColor();
+  sasuke.style.width = randW;
+  sasuke.style.height = randH;
+  sasuke.onclick = showS;
+
+  var elementArea = document.getElementById("breakB");
+  elementArea.appendChild(sasuke);
 }
 
 // Creates and adds a new square div to the page.
@@ -88,6 +121,32 @@ function addElems(randW, randH) {
 
   var elementArea = document.getElementById("elementarea");
   elementArea.appendChild(circle);
+
+  var naruto = document.createElement("div");
+  naruto.className = "naruto";
+  //target the usually css defined properties, so we give it a string 342px or something
+  naruto.style.left = parseInt(Math.random() * maxX)+ "px";
+  naruto.style.top = parseInt(Math.random() * maxY) + "px";
+  naruto.style.backgroundColor = getRandomColor();
+  naruto.style.width = randW;
+  naruto.style.height = randH;
+  naruto.onclick = show;
+
+  var elementArea = document.getElementById("elementarea");
+  elementArea.appendChild(naruto);
+
+  var sasuke = document.createElement("div");
+  sasuke.className = "sasuke";
+  //target the usually css defined properties, so we give it a string 342px or something
+  sasuke.style.left = parseInt(Math.random() * maxX)+ "px";
+  sasuke.style.top = parseInt(Math.random() * maxY) + "px";
+  sasuke.style.backgroundColor = getRandomColor();
+  sasuke.style.width = randW;
+  sasuke.style.height = randH;
+  sasuke.onclick = showS;
+
+  var elementArea = document.getElementById("elementarea");
+  elementArea.appendChild(sasuke);
 }
 
 function breakW() {
@@ -116,7 +175,7 @@ function changeSquareColors() {
   }
 }
 
-// Gives a new randomly chosen color to every square on the page.
+// Gives a new randomly chosen color to every circle on the page.
 function changeCircleColors() {
   var elementArea = document.getElementById("elementarea");
   var elements = elementArea.getElementsByTagName("div");
@@ -125,33 +184,14 @@ function changeCircleColors() {
   }
 }
 
-
-
-// Creates and adds a new square div to the page.
-function addSquare() {
-  var square = document.createElement("div");
-  square.className = "square";
-  square.style.left = parseInt(Math.random() * 650) + "px";
-  square.style.top = parseInt(Math.random() * 250) + "px";
-  square.style.backgroundColor = getRandomColor();
-  var randW = parseInt(Math.random() * 40) + 20;
-  var randH = parseInt(Math.random() * 40) + 20;
-  square.style.width = randW;
-  square.style.height = randH;
-  square.onclick = squareClick;
-
-  var elementArea = document.getElementById("elementarea");
-  elementArea.appendChild(square);
-}
-
 function clearShapes() {
 //TODO: find a way to clear all shapes inside the shape area
 var elementArea = document.getElementById("elementarea");
 //get all things that are divs inside the elementsarea, loop through them
 var elements = elementArea.getElementsByTagName("div");
 for (var i = 0; i < elements.length; i++) {
-    elements[i].style.backgroundColor = "#ffffff";
-    elements[i].style.border = "white";
+    elements[i].remove("circle","square","naruto","sasuke");
+    //elements[i].style.border = "white";
   }
 }
 
@@ -161,13 +201,29 @@ var numF = 5;
 var numT = "3";
 var result = numF + numT;
 
+// Creates and adds a new square div to the page.
+function addSquare() {
+  var square = document.createElement("div");
+  square.className = "square";
+  square.style.left = parseInt(Math.random() * 600) + "px";
+  square.style.top = parseInt(Math.random() * 50) + "px";
+  square.style.backgroundColor = getRandomColor();
+  var randW = parseInt(Math.random() * 43) + 20;
+  var randH = parseInt(Math.random() * 40) + 22;
+  square.style.width = randW;
+  square.style.height = randH;
+  square.onclick = squareClick;
+
+  var elementArea = document.getElementById("elementarea");
+  elementArea.appendChild(square);
+}
 
 // Creates and adds a new circle div to the page.
 function addCircle() {
   var circle = document.createElement("div");
   circle.className = "circle";
-  circle.style.left = parseInt(Math.random() * 650) + "px";
-  circle.style.top = parseInt(Math.random() * 250) + "px";
+  circle.style.left = parseInt(Math.random() * 640) + "px";
+  circle.style.top = parseInt(Math.random() * 200) + "px";
   circle.style.backgroundColor = getRandomColor();
   var randW = parseInt(Math.random() * 40) + 20;
   var randH = parseInt(Math.random() * 40) + 20;
@@ -178,6 +234,40 @@ function addCircle() {
 
   var elementArea = document.getElementById("elementarea");
   elementArea.appendChild(circle);
+}
+
+function addNaruto() {
+  var naruto = document.createElement("div");
+  naruto.className = "naruto";
+  //naruto.style.left = parseInt(Math.random() * 650) + "px";
+  //naruto.style.top = parseInt(Math.random() * 250) + "px";
+  //naruto.style.backgroundColor = getRandomColor();
+  //var randW = parseInt(Math.random() * 40) + 20;
+  //var randH = parseInt(Math.random() * 40) + 20;
+  //naruto.style.width = randW;
+  //naruto.style.height = randH;
+  
+  naruto.onclick = show;
+
+  var elementArea = document.getElementById("addN");
+  elementArea.appendChild(naruto);
+}
+
+function addSasuke() {
+  var sasuke = document.createElement("div");
+  sasuke.className = "sasuke";
+  //sasuke.style.left = parseInt(Math.random() * 650) + "px";
+  //sasuke.style.top = parseInt(Math.random() * 250) + "px";
+  //sasuke.style.backgroundColor = getRandomColor();
+  //var randW = parseInt(Math.random() * 40) + 20;
+  //var randH = parseInt(Math.random() * 40) + 20;
+  //sasuke.style.width = randW;
+  //sasuke.style.height = randH;
+  
+  sasuke.onclick = showS;
+
+  var elementArea = document.getElementById("addR");
+  elementArea.appendChild(sasuke);
 }
 
 // Generates and returns a random color string such as "#f08a7c".
@@ -201,4 +291,22 @@ function squareClick() {
     this.style.zIndex = maxZ;
   }
 
+}
+ function show() {
+  document.getElementById('addR').remove('addR');
+  document.getElementById('addN');//.style.maxHeight = "200px";
+  var images = document.querySelectorAll("#addN img");
+  for(var i = 0; i < images.length; i++)
+  {
+    images[i].src = images[i].getAttribute('data-src');
+  }
+}
+ function showS() {
+  document.getElementById('addN').remove('addN');
+  document.getElementById('addR');//.style.maxHeight = "200px";
+  var images = document.querySelectorAll("#addR img");
+  for(var i = 0; i < images.length; i++)
+  {
+    images[i].src = images[i].getAttribute('data-src');
+  }
 }
