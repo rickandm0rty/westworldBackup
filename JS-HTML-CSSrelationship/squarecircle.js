@@ -17,12 +17,20 @@ window.onload = function() {
   breakWebsite.onclick = breakW;
   var addS = document.getElementById("addS");
   addS.onclick = addSquare;
+  var removeS = document.getElementById("removeS");
+  removeS.onclick = removeSquare;
   var addC = document.getElementById("addC");
   addC.onclick = addCircle;
+  var removeC = document.getElementById("removeC");
+  removeC.onclick = removeCircle;
   var addR = document.getElementById("addR");
   addR.onclick = addSasuke;
+  var killS = document.getElementById("killS");
+  killS.onclick = removeSquare;
   var addN = document.getElementById("addN");
   addN.onclick = addNaruto;
+  var killN = document.getElementById("killN");
+  killN.onclick = removeSquare;
   var colors = document.getElementById("colors");
   colors.onclick = changeColors;
   var clear = document.getElementById("clear");
@@ -269,6 +277,33 @@ function addSasuke() {
   var elementArea = document.getElementById("addR");
   elementArea.appendChild(sasuke);
 }
+function removeSquare() {
+  var elementArea = document.getElementById("elementarea");
+  var elements = elementArea.getElementsByTagName("div");
+  var randS = elements[elements.length-1];
+  randS.remove();
+}
+
+function removeCircle() {
+  var elementArea = document.getElementById("elementarea");
+  var elements = elementArea.getElementsByTagName("div");
+  var randC = elements[elements.length-1];
+  randC.remove();
+}
+
+function killS() {
+  var elementArea = document.getElementByClass("sasuke");
+  var elements = elementArea.getElementsByTagName("div");
+  var randR = elements[elements.length-1];
+  randC.remove();
+}
+
+function killN() {
+  var elementArea = document.getElementByClass("naruto");
+  var elements = elementArea.getElementsByTagName("div");
+  var randN = elements[elements.length-1];
+  randC.remove();
+}
 
 // Generates and returns a random color string such as "#f08a7c".
 function getRandomColor() {
@@ -293,8 +328,8 @@ function squareClick() {
 
 }
  function show() {
-  document.getElementById('addR').remove('addR');
-  document.getElementById('addN');//.style.maxHeight = "200px";
+  //document.getElementById('addR').remove('addR');
+  document.getElementById('addN').style.maxHeight = "200px";
   var images = document.querySelectorAll("#addN img");
   for(var i = 0; i < images.length; i++)
   {
@@ -302,8 +337,8 @@ function squareClick() {
   }
 }
  function showS() {
-  document.getElementById('addN').remove('addN');
-  document.getElementById('addR');//.style.maxHeight = "200px";
+  //document.getElementById('addN').remove('addN');
+  document.getElementById('addR').style.maxHeight = "200px";
   var images = document.querySelectorAll("#addR img");
   for(var i = 0; i < images.length; i++)
   {
