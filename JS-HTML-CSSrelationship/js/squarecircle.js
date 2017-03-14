@@ -17,8 +17,8 @@ window.onload = function() {
   breakWebsite.onclick = breakW;
   var addS = document.getElementById("addS");
   addS.onclick = addSquare;
-  var removeS = document.getElementById("removeS");
-  removeS.onclick = removeSquare;
+  var removeS = document.getElementById("killS");
+  killS.onclick = removeSquare;
   var addC = document.getElementById("addC");
   addC.onclick = addCircle;
   var removeC = document.getElementById("removeC");
@@ -26,11 +26,11 @@ window.onload = function() {
   var addR = document.getElementById("addR");
   addR.onclick = addSasuke;
   var killS = document.getElementById("killS");
-  killS.onclick = killS;
+  killS.onclick = removeSquare;
   var addN = document.getElementById("addN");
   addN.onclick = addNaruto;
   var killN = document.getElementById("killN");
-  killN.onclick = killN;
+  killN.onclick = removeSquare;
   var colors = document.getElementById("colors");
   colors.onclick = changeColors;
   var clear = document.getElementById("clear");
@@ -294,15 +294,15 @@ function removeCircle() {
 function killS() {
   var elementArea = document.getElementByClass("sasuke");
   var elements = elementArea.getElementsByTagName("div");
-  var randM = elements[elements.length-1];
-  randM.remove();
+  var randR = elements[elements.length-1];
+  randC.remove();
 }
 
 function killN() {
   var elementArea = document.getElementByClass("naruto");
   var elements = elementArea.getElementsByTagName("div");
   var randN = elements[elements.length-1];
-  randN.remove();
+  randC.remove();
 }
 
 // Generates and returns a random color string such as "#f08a7c".
