@@ -1450,7 +1450,7 @@ footer a:hover {
 -------------------------------- */
 .features {
 	padding: 100px 0 100px 0;
-	background-color: #ffeedb;
+	background-color: slategray;
 	border-top: 15px double #fff;
 }
 
@@ -1467,7 +1467,7 @@ footer a:hover {
 
 .features .feature-item .item-head i {
     font-size: 50px;
-		color:#000;
+		color:slategray;
 }
 
 .features .feature-item h6 {

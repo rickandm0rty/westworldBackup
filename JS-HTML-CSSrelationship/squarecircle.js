@@ -198,7 +198,7 @@ var elementArea = document.getElementById("elementarea");
 //get all things that are divs inside the elementsarea, loop through them
 var elements = elementArea.getElementsByTagName("div");
 for (var i = 0; i < elements.length; i++) {
-    elements[i].remove("circle","square","naruto","sasuke");
+    elements[i].remove("circle","square");
     //elements[i].style.border = "white";
   }
 }
