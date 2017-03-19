@@ -21,10 +21,15 @@ function initLevel(numButterflies) {
 	function generateButterflies() {
 		newLevel.butterflies = [];
 		// place butterflies randomly throughout the level
+		//this pushes butterflies
 		for (var i = 0; i < newLevel.maxScore; i++) {
 			newLevel.butterflies.push(initButterfly((Math.random() * (level.background.width - canvas.width)) + 600,
 				(Math.random() * (level.background.height/2)) + 50));
 		}
+		if newLevel.currentScore >= 42 {
+			newLevel.butterflies.push(initApple((Math.random() * (level.background.width - canvas.width)) + 600,
+				(Math.random() * (level.background.height/2)) + 50));
+			}
 	}
 
 	newLevel.update = function () {
