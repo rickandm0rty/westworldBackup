@@ -24,11 +24,14 @@ function initLevel(numButterflies) {
 		//this pushes butterflies
 		for (var i = 0; i < newLevel.maxScore; i++) {
 			newLevel.butterflies.push(initButterfly((Math.random() * (level.background.width - canvas.width)) + 600,
-				(Math.random() * (level.background.height/2)) + 50));
+				(Math.random() * (level.background.height/2)) + 150));
 		}
-		if newLevel.currentScore >= 42 {
-			newLevel.butterflies.push(initApple((Math.random() * (level.background.width - canvas.width)) + 600,
-				(Math.random() * (level.background.height/2)) + 50));
+		//We have made a spawn for apples made
+		newLevel.apples = [];
+		//if level.currentScore >= 42 
+		for (var i = 0; i < newLevel.maxScore; i++){
+			newLevel.apples.push(initApple((Math.random() * (level.background.width - canvas.width)) + 600,
+				(Math.random() * (level.background.height/2)) + 150));
 			}
 	}
 
@@ -61,6 +64,20 @@ function initLevel(numButterflies) {
 				}
 			}
 		}
+		//This gathers an index of all apples not captured on screen
+		for (var index in level.apples) {
+			var apple = level.apples[index];
+			if (!apple.captured) {
+				if (apple.x >= -(level.background.x) - apple.width && apple.x <= -(level.background.x) + canvas.width) {
+					apple.canvasX = apple.x + level.background.x;
+					apple.canvasY = apple.y;
+				}
+				else {
+					apple.canvasX = undefined;
+					apple.canvasY = undefined;
+				}
+			}
+		}
 	};
 
 	newLevel.render = function () {
@@ -77,6 +94,18 @@ function initLevel(numButterflies) {
 			if (butterfly.update && butterfly.render && !butterfly.captured) {
 				butterfly.update();
 				butterfly.render();
+			}
+		}
+		//this allows capture and update of apples from our index
+		for (index in level.apples) {
+			apple = level.apples[index];
+			if (player.collisionCheck(apple)) {
+				incrementScore(apple);
+			}
+			// update and render our butterflies, if they have loaded.
+			if (apple.update && apple.render && !apple.captured) {
+				apple.update();
+				apple.render();
 			}
 		}
 	};

@@ -6,7 +6,7 @@ function initApple (startingX, startingY) {
 
 	var butterflyImg = new Image();
 	butterflyImg.onload = function () {
-		newButterfly.width = 100;
+		newButterfly.width = 93;
 		newButterfly.height = butterflyImg.height;
 
 		newButterfly.spriteSheet = butterflyImg;

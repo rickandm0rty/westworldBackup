@@ -27,7 +27,7 @@ function initPlayer (startingX) {
 			height: newPlayer.height,
 			image: newPlayer.spriteSheet,
 			numberOfFrames: 1,
-			startingFrameIndex: 0,
+			startingFrameIndex: 0, 
 			loop: false
 		});
 
@@ -38,6 +38,7 @@ function initPlayer (startingX) {
 			numberOfFrames: 1,
 			startingFrameIndex: 0,
 			loop: false
+
 		});
 
 		newPlayer.rightWalkingSprite = sprite({

@@ -100,7 +100,7 @@ function updateGame () {
 		// setup a message to display
 		context.fillStyle = '#8060B6';
 		context.font = '6em "Grand Hotel"';
-		var message = 'Level ' + levelCount + ' cleared!';
+		var message = 'Skills ' + 'Acquired!';
 		context.fillText(message, (canvas.width - context.measureText(message).width)/2, canvas.height/2);
 		// display the message for 2 seconds before clearing it and starting a new level
 		if (timeout === undefined) {
