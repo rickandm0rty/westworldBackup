@@ -212,6 +212,7 @@ ul.social-icons li a:hover{
 .section-overlay ~ .container {
     position: relative;
     z-index: 5;
+    align-content: center;
 }
 
 section{
@@ -246,6 +247,7 @@ section{
 }
 .mt-100{
 	margin-top: 100px;
+    align-content: center;
 }
 
 .mt-150{
@@ -254,6 +256,7 @@ section{
 
 .mb-50{
 	margin-bottom: 50px;
+    align-content: center;
 }
 
 .mb-100{
@@ -915,9 +918,10 @@ ul.tags li a:hover{
 .box-intro {
     text-align: center;
     display: table;
-    height: 100vh;
+    height: 20vh;
     width: 100%;
-    background-image: url(../img/header.jpg);
+    background-image: url(../img/dot.gif);
+    opacity: 0.85;
 		background-attachment: fixed;
     background-position: center center;
     -webkit-background-size: cover;
@@ -927,8 +931,6 @@ ul.tags li a:hover{
 }
 
 .bg-film:before {
-    background: url(../img/dot.gif);
-    opacity: 0.03;
     content: "";
     left: 0;
     top: 0;
@@ -959,7 +961,7 @@ b i:last-child {
 .box-intro h1{
 		font-size: 40px;
 	  margin-top: 35px;
-	  color: #333;
+	  color: white;
 	  letter-spacing: 40px;
 		font-weight: 700;
 }
@@ -1195,8 +1197,9 @@ b i:last-child {
 /* #####  Footer  ##### */
 
 footer.main-footer{
-		background-color: #000;
+		
 		z-index: 0;
+        align-content: center;
 }
 
 footer p {
@@ -1209,12 +1212,18 @@ footer a {
 }
 
 footer a:hover {
-    color: #000;
+    
     text-decoration: none;
 }
 
 .logo-footer{
 		margin-bottom: 30px;
+        align-content: center;
+}
+
+.footer-widget {
+    text-align: center;
+    margin-top: 100px;
 }
 
 .footer-widget h4 {
@@ -1224,6 +1233,8 @@ footer a:hover {
 		font-size: 15px;
 		position: relative;
 		z-index: 2;
+        text-align: center;
+        margin-top: 10px;
 }
 
 .contact-widget ul.social-icons li {
@@ -1257,7 +1268,7 @@ footer a:hover {
 }
 
 .contact-widget ul.social-icons li a.twitter:hover i {
-   	color: #63CDF1;
+   	color: black;
 }
 
 .contact-widget ul.social-icons li a.google:hover i {
@@ -1294,31 +1305,38 @@ footer a:hover {
 
 .contact-widget span {
    	font-weight: 900;
+    align-content: center;
 }
 
 .contact-widget ul li {
    	margin-bottom: 12px;
+    align-content: center;
 }
 
 .contact-widget ul li p a {
    	color: #777;
+    align-content: center;
 }
 
 .contact-widget p {
    padding-bottom: 20px;
+   align-content: center;
 }
 
 .twitter-widget a:hover {
    	color: #000;
    	text-decoration: none;
+    align-content: center;
 }
 
 .twitter-widget ul li {
    	margin-bottom: 20px;
+    align-content: center;
 }
 
 .twitter-widget ul li span {
     color: #777;
+    align-content: center;
 }
 
 .company-links a{
@@ -1343,15 +1361,18 @@ footer a:hover {
 @media (max-width: 992px) {
 	footer.main-footer *{
 		text-align: center;
+        align-content: center;
 	}
 	footer.main-footer ul.social-icons{float: left;width: 100%;text-align: center;}
 	footer.main-footer nav.footer-nav ul li{
 		text-align: center;
 		width: 100%;
+        align-content: center;
 	}
 	footer.main-footer nav.footer-nav ul li, footer.main-footer nav.footer-nav ul li:first-child{
 		margin-left:0;
 		margin-bottom: 20px;
+        align-content: center;
 	}
 }
 
@@ -1360,10 +1381,12 @@ footer a:hover {
 
 	footer.main-footer{
 		padding: 0;
+        align-content: center;
 	}
 
 	footer.main-footer *{
 		text-align: left;
+        align-content: center;
 	}
 }
 
@@ -1391,7 +1414,8 @@ footer a:hover {
 
 .facts {
 		padding: 100px 0 50px 0;
-		background-color: #ffeedb;
+		background-color: #187b9c;
+        opacity: .8;
 		border-top: 15px double #ffffff
 }
 
@@ -1419,6 +1443,7 @@ footer a:hover {
 }
 
 .numscroller{
+
 	  font-size: 45px;
 	  color: #000;
 	  margin-top: -125px;
@@ -1450,24 +1475,30 @@ footer a:hover {
 -------------------------------- */
 .features {
 	padding: 100px 0 100px 0;
-	background-color: slategray;
+	background-color: #187b9c;
+    opacity: .8;
 	border-top: 15px double #fff;
 }
 
 @media only screen and (max-width : 480px) {
 	.features {
 		padding: 50px 0 100px 0;
+        color:#187b9c;
+        opacity: .8;
 	}
 }
 
 .features .feature-item .item-head {
     position: relative;
     display: block;
+    color:#187b9c;
+    opacity: .8;
 }
 
 .features .feature-item .item-head i {
     font-size: 50px;
-		color:slategray;
+		color:#187b9c;
+        opacity: .8;
 }
 
 .features .feature-item h6 {
@@ -1478,12 +1509,16 @@ footer a:hover {
 		color: #000;
 		font-weight: 700;
 		letter-spacing: 1px;
+        color:#187b9c;
+        opacity: .8;
 }
 
 .features .feature-item p {
     margin-top: 20px;
     margin-bottom: 0;
     padding: 0;
+    color:#187b9c;
+    opacity: .8;
 }
 
 /* --------------------------------
@@ -1971,9 +2006,9 @@ footer a:hover {
 -------------------------------- */
 
 .contact {
-		background-color: #fff;
+
     padding: 100px 0 50px 0;
-    color: #000;
+    
 }
 
 .contact .bottom-right-separator{
@@ -1987,6 +2022,7 @@ footer a:hover {
     font-size: 20px;
     letter-spacing: 10px;
     line-height: 1.5;
+    margin-top: 15px;
 }
 
 .contact a:hover{
